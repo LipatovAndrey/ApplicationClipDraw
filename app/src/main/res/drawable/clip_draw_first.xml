@@ -2,7 +2,7 @@
 <clip
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:clipOrientation="horizontal"
-    android:drawable="@drawable/layerlist"
+    android:drawable="@drawable/layerlist_first"
     android:gravity="left"
     >
 
