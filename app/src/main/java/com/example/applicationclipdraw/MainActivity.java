@@ -6,13 +6,15 @@ import android.graphics.drawable.Drawable;
 import android.icu.util.ValueIterator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
     ImageView imageView;
-    ClipDrawable clipDrawable;
+    View second;
+    ClipDrawable clipDrawable, clipDrawable2;
     ValueAnimator mAnimator;
 
     @Override
@@ -20,8 +22,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView = (ImageView) findViewById(R.id.imageView);
+
         // Создаём аниматор
         clipDrawable = (ClipDrawable) imageView.getDrawable();
+        //clipDrawable2 = (ClipDrawable) getResources().getDrawable(R.drawable.clip_second);
+
         mAnimator = ValueAnimator.ofInt(0, 10000);
         mAnimator.setRepeatMode(ValueAnimator.REVERSE);
         mAnimator.setRepeatCount(ValueAnimator.INFINITE);
@@ -32,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 Integer value = (Integer) valueAnimator.getAnimatedValue();
                 clipDrawable.setLevel(value);
+
             }
         });
         mAnimator.start();
